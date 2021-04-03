@@ -15,10 +15,10 @@ namespace Application.Features.Employees.Queries
         private readonly IMapper _mapper;
         private readonly IEmployeeRepository _employeeRepositoy;
 
-        public GetEmployeeByIdQueryHandler(IMapper mapper, IEmployeeRepository employeeRepositoy)
+        public GetEmployeeByIdQueryHandler(IMapper mapper, IEmployeeRepository employeeRepository)
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-            _employeeRepositoy = employeeRepositoy ?? throw new ArgumentNullException(nameof(employeeRepositoy));
+            _employeeRepositoy = employeeRepository ?? throw new ArgumentNullException(nameof(employeeRepository));
         }
 
         public async Task<EmployeeRest> Handle(GetEmployeeByIdQuery request, CancellationToken cancellationToken)
