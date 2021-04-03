@@ -1,4 +1,5 @@
 using Application.Contracts.Persistence;
+using Application.Exceptions;
 using Application.Features.Employees.Queries;
 using Application.Profiles;
 using Application.UnitTest.Mocks;
@@ -35,6 +36,14 @@ namespace Application.UnitTest.Queries
             var result = await handler.Handle(new GetEmployeeByIdQuery(3), CancellationToken.None);
             result.ShouldBeOfType<EmployeeRest>();
             result.Id.ShouldBe(3);
+        }
+
+        [Fact]
+        public async Task NotFoundEmployeeIdTest()
+        {
+            var handler = new GetEmployeeByIdQueryHandler(_mapper, _mockEmployeeRepository.Object);
+            var exception = await Assert.ThrowsAsync<NotFoundException>(() => handler.Handle(new GetEmployeeByIdQuery(30), CancellationToken.None));
+            exception.Message.ShouldBe("Employee (30) is not found");
         }
     }
 }
