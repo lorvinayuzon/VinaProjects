@@ -13,7 +13,7 @@ namespace Application.Profiles
         {
             CreateMap<Employee, EmployeeRest>().ReverseMap();
             CreateMap<Employee, CreateEmployeeCommand>().ReverseMap();
-            CreateMap<Employee, CreateEmployeeCommand>().ReverseMap();
+            CreateMap<Employee, UpdateEmployeeCommand>().ReverseMap();
             CreateMap<Employee, DeleteEmployeeCommand>().ReverseMap();
         }
     }
