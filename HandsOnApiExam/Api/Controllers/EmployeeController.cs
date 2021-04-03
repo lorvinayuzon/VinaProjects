@@ -25,7 +25,6 @@ namespace HandsOnExamApi.Controllers
             _mediator = mediator;
         }
 
-        // GET: api/<EmployeeController>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EmployeeRest>>> Get()
         {
@@ -33,7 +32,6 @@ namespace HandsOnExamApi.Controllers
             return Ok(dtos);
         }
 
-        // GET api/<EmployeeController>/5
         [HttpGet("{id}")]
         public async Task<ActionResult<EmployeeRest>> Get(int id)
         {
@@ -41,7 +39,6 @@ namespace HandsOnExamApi.Controllers
             return Ok(dtos);
         }
 
-        // POST api/<EmployeeController>
         [HttpPost]
         public async Task<ActionResult<int>> Post(EmployeeRest employee)
         {
@@ -50,8 +47,7 @@ namespace HandsOnExamApi.Controllers
             return Ok(id);
         }
 
-        // PUT api/<EmployeeController>/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public async Task<ActionResult> Put(EmployeeRest employee)
         {
             var command = new UpdateEmployeeCommand(employee);
@@ -59,7 +55,6 @@ namespace HandsOnExamApi.Controllers
             return NoContent();
         }
 
-        // DELETE api/<EmployeeController>/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
