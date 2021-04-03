@@ -28,7 +28,7 @@ namespace Application.UnitTest.Commands
         }
 
         [Fact]
-        public async Task Handle_ValidEmployee_AddedToEmployeeRepo()
+        public async Task HandleValidEmployeeDeletedToEmployeeRepo()
         {
             var handler = new DeleteEmployeeCommandHandler(_mapper, _mockEmployeeRepository.Object);
             await handler.Handle(new DeleteEmployeeCommand(4), CancellationToken.None);

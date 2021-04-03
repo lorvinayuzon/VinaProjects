@@ -29,7 +29,7 @@ namespace Application.UnitTest.Commands
         }
 
         [Fact]
-        public async Task Handle_ValidEmployee_AddedToEmployeeRepo()
+        public async Task HandleValidEmployeUpdatedToEmployeeRepo()
         {
             var handler = new UpdateEmployeeCommandHandler(_mapper, _mockEmployeeRepository.Object);
 
